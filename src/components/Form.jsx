@@ -3,15 +3,15 @@ import { useParams, useHistory } from "react-router";
 import { useEffect } from "react";
 import { createProject, editProject } from "../api";
 
-export default function EditForm(props) {
-  const { editForm, setEditForm, fetchProject, type } = props;
+export default function Form(props) {
+  const { formData, setFormData, fetchProject, type } = props;
 
   const { id } = useParams();
   const history = useHistory();
 
   useEffect(() => {
     if (type === "newForm") {
-      setEditForm && setEditForm({});
+      setFormData && setFormData({});
       history.push("/new");
     } else {
       fetchProject && fetchProject(id);
@@ -21,13 +21,13 @@ export default function EditForm(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (type === "filledForm") {
-      await editProject(id, editForm);
-    } else await createProject(editForm);
+      await editProject(id, formData);
+    } else await createProject(formData);
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setEditForm((prevInput) => ({
+    setFormData((prevInput) => ({
       ...prevInput,
       [name]: value,
     }));
@@ -41,7 +41,7 @@ export default function EditForm(props) {
           id="projName"
           type="text"
           name="projectName"
-          value={editForm.projectName}
+          value={formData.projectName}
         />
         <br />
         <label htmlFor="initialInvestment">Initial Investment: </label>
@@ -49,7 +49,7 @@ export default function EditForm(props) {
           id="initialInvestment"
           type="number"
           name="initialInvestment"
-          value={editForm.initialInvestment}
+          value={formData.initialInvestment}
         />
         <br />
         <label htmlFor="addCapital">Additional Capital: </label>
@@ -57,7 +57,7 @@ export default function EditForm(props) {
           id="addCapital"
           type="number"
           name="additionalCapital"
-          value={editForm.additionalCapital}
+          value={formData.additionalCapital}
         />
         <br />
         <label htmlFor="holdPeriod">Hold Period: </label>
@@ -65,7 +65,7 @@ export default function EditForm(props) {
           id="holdPeriod"
           type="number"
           name="holdPeriod"
-          value={editForm.holdPeriod}
+          value={formData.holdPeriod}
         />
         <br />
         <label htmlFor="annualRev">Annual Revenue: </label>
@@ -73,7 +73,7 @@ export default function EditForm(props) {
           id="annualRev"
           type="number"
           name="annualRevenue"
-          value={editForm.annualRevenue}
+          value={formData.annualRevenue}
         />
         <br />
         <label htmlFor="annualExp">Annual Expense: </label>
@@ -81,7 +81,7 @@ export default function EditForm(props) {
           id="annualExp"
           type="number"
           name="annualExpense"
-          value={editForm.annualExpense}
+          value={formData.annualExpense}
         />
         <br />
         <label htmlFor="closingCost">Closing Cost: </label>
@@ -89,7 +89,7 @@ export default function EditForm(props) {
           id="closingCost"
           type="number"
           name="closingCost"
-          value={editForm.closingCost}
+          value={formData.closingCost}
         />
         <br />
         <label htmlFor="growthRev">Revenue Growth Rate: </label>
@@ -97,7 +97,7 @@ export default function EditForm(props) {
           id="growthRev"
           type="number"
           name="revenueGrowthRate"
-          value={editForm.revenueGrowthRate}
+          value={formData.revenueGrowthRate}
         />
         <br />
         <label htmlFor="growthExp">Expense Growth Rate: </label>
@@ -105,7 +105,7 @@ export default function EditForm(props) {
           id="growthExp"
           type="number"
           name="expenseGrowthRate"
-          value={editForm.expenseGrowthRate}
+          value={formData.expenseGrowthRate}
         />
         <br />
         <button type="submit">Submit</button>
