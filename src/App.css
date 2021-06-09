@@ -25,13 +25,13 @@
   border: solid 1px black;
 }
 
-.additionalCapital {
+.annualRevenue {
   grid-row: 2;
 }
 .initialInvestment {
   grid-row: 3;
 }
-.annualRevenue {
+.additionalCapital {
   grid-row: 4;
 }
 .annualExpense {
