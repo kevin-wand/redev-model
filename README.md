@@ -11,11 +11,12 @@ https://github.com/kevin-wand/redev-model
 
 ## Wireframes
 
-![imageAlt](https://i.imgur.com/y0bHVKz.png)
+![imageAlt](https://i.imgur.com/gq0tWLi.png)
 
 ## Component Hierarchy
 
-![imageAlt](https://i.imgur.com/hcYgpUP.png)
+![imageAlt](https://i.imgur.com/g2Xa0uV.png)
+![imageAlt](https://i.imgur.com/UMf5rUC.png)
 
 ## API and Data Sample
 
