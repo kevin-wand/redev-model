@@ -35,6 +35,7 @@ export default function PrevResults() {
               <p>Revenue Growth Rate: {input.fields.revenueGrowthRate}</p>
               <p>Expense Growth Rate: {input.fields.expenseGrowthRate}</p>
               <p>Hold Period: {input.fields.holdPeriod}</p>
+              <p>Cap Rate: {input.fields.capRate}</p>
               <Link to={`/edit/pr/${input.id}`}>Edit</Link>
               <button onClick={handleDelete}>{input.id}</button>
             </div>

@@ -11,12 +11,12 @@ export default function Form(props) {
 
   useEffect(() => {
     if (type === "newForm") {
-      setFormData && setFormData({});
+      setFormData({});
       history.push("/new");
     } else {
       fetchProject && fetchProject(id);
     }
-  }, [id]);
+  }, [type]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -106,6 +106,14 @@ export default function Form(props) {
           type="number"
           name="expenseGrowthRate"
           value={formData.expenseGrowthRate}
+        />
+        <br />
+        <label htmlFor="capRate">Cap Rate: </label>
+        <input
+          id="capRate"
+          type="number"
+          name="capRate"
+          value={formData.capRate}
         />
         <br />
         <button type="submit">Submit</button>

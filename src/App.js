@@ -13,7 +13,7 @@ function App() {
 
   const fetchProject = async (id) => {
     const res = await getProject(id);
-    console.log(res.fields);
+    // console.log(res.fields);
     setFormData(res.fields);
   };
 

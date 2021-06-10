@@ -6,46 +6,63 @@
   display: flex;
 }
 
+.newForm {
+  display: grid;
+  height: auto;
+  /* justify-items: end; */
+  grid-template-columns: 2fr 1fr 0.75fr;
+  grid-template-rows: repeat(12, 1fr);
+  border: solid 1px black;
+}
+
 .output-container {
   display: grid;
   width: 900px;
   height: auto;
+  /* justify-items: end; */
   grid-template-columns: 40px repeat(auto-fill);
   grid-template-rows: repeat(26, 1fr);
-  /* grid-template-areas:
-    ". years-1 years-2 years-3 years-4 years-5 years-6 years-7 years-8 years-9 years-10 years-11"
-    "holdPeriod . . . . . . . . . ."
-    "annualRevenue . . . . . . . . . ."
-    "annualExpense . . . . . . . . . ."
-    "initialInvestment . . . . . . . . . ."
-    "additionalCapital . . . . . . . . . ."
-    "closingCost . . . . . . . . . ."
-    "revenueGrowthRate . . . . . . . . . ."
-    "expenseGrowthRate . . . . . . . . . ."; */
   border: solid 1px black;
 }
 
 .annualRevenue {
   grid-row: 2;
 }
-.initialInvestment {
+.annualExpense {
   grid-row: 3;
 }
-.additionalCapital {
+.annualNoi {
   grid-row: 4;
 }
-.annualExpense {
-  grid-row: 5;
-}
-.closingCost {
-  grid-row: 6;
-}
-.revenueGrowthRate {
+.initialInvestment {
   grid-row: 7;
 }
-.expenseGrowthRate {
+.additionalCapital {
   grid-row: 8;
 }
-.holdPeriod {
+.salePrice {
   grid-row: 9;
+}
+.closingCost {
+  grid-row: 10;
+}
+.cashFlow {
+  grid-row: 11;
+}
+
+.profit {
+  grid-row: 13;
+  grid-column: 1;
+}
+.profitNum {
+  grid-row: 13;
+  grid-column: 2;
+}
+.roi {
+  grid-row: 14;
+  grid-column: 1;
+}
+.roiNum {
+  grid-row: 14;
+  grid-column: 2;
 }
