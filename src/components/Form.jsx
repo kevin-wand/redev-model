@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { createProject, editProject } from "../api";
 
 export default function Form(props) {
+  //eslint-disable-next-line
   const { formData, setFormData, fetchProject, type } = props || {};
   const [edit, setEdit] = useState(false);
   const { id } = useParams();
