@@ -1,28 +1,81 @@
+* {
+  border: 1px solid black;
+}
+
 .App {
   text-align: center;
 }
 
-.form-output-wrapper {
-  display: flex;
+.container {
+  display: block;
+  /* grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas: "\.header \.header \.header"
+  "\.form-output-wrapper \.form-output-wrapper \.form-output-wrapper"
+  "footer footer footer"; */
 }
 
-.newForm {
+/*.new-form {
   display: grid;
   height: auto;
-  /* justify-items: end; */
+  justify-items: end;
   grid-template-columns: 2fr 1fr 0.75fr;
   grid-template-rows: repeat(12, 1fr);
-  border: solid 1px black;
+}
+ grid-auto-flow: column; */
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". . header-links"
+    ". . .";
 }
 
+.header-links {
+  grid-area: header-links;
+}
+
+.form-output-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "form-wrapper output-container output-container"
+    "form-wrapper profit-wrapper profit-wrapper";
+  background-color: goldenrod;
+}
+.form-wrapper {
+  display: grid;
+  height: auto;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas: "form-labels form-numbers .";
+  grid-area: form-wrapper;
+  background-color: coral;
+}
+.form-labels {
+  grid-area: form-labels;
+  /* display: flex;
+  flex-direction: row; */
+}
+.form-numbers {
+  grid-area: form-numbers;
+  /* display: flex;
+  flex-direction: row; */
+}
 .output-container {
   display: grid;
-  width: 900px;
+  width: 80vw;
   height: auto;
   /* justify-items: end; */
   grid-template-columns: 40px repeat(auto-fill);
-  grid-template-rows: repeat(26, 1fr);
-  border: solid 1px black;
+  grid-template-rows: repeat(auto-fill);
+  background-color: indianred;
 }
 
 .annualRevenue {
@@ -65,4 +118,25 @@
 .roiNum {
   grid-row: 14;
   grid-column: 2;
+}
+
+.profit-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "profit-labels profit-numbers"
+    ". . .";
+  grid-area: profit-wrapper;
+  background-color: dodgerblue;
+}
+.profit-labels {
+  grid-area: profit-labels;
+}
+.profit-numbers {
+  grid-area: profit-numbers;
+}
+.footer {
+  grid-area: footer;
 }

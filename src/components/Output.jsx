@@ -83,7 +83,9 @@ export default function Output(props) {
     }
   }
 
-  let cashArray = [-parseInt(formData.initialInvestment)];
+  let cashArray = isNaN(formData.initialInvestment)
+    ? [0]
+    : [-parseInt(formData.initialInvestment)];
   for (let j = 0; j <= time; j++) {
     if (j === 0) {
       cashArray.push(
@@ -120,6 +122,9 @@ export default function Output(props) {
   const reducer = (a, b) => a + b;
   let profit = cashArray.reduce(reducer).toFixed(0);
   let roi = parseFloat(1 + profit / formData.initialInvestment).toFixed(2);
+
+  profit = isNaN(profit) ? "" : profit;
+  roi = isNaN(roi) ? "" : roi + "x";
 
   // =======================================================
   // ============= COLUMN POSITION FOR OUTPUT ==============
@@ -198,76 +203,81 @@ export default function Output(props) {
   };
 
   return (
-    <div className="output-container">
-      {yearArray.map((e, index) => {
-        return (
-          <p style={yearStyles(index)} key={index}>
-            Yr {index}
-          </p>
-        );
-      })}
-      <p className="annualRevenue">Annual Revenue </p>
-      {revArray.map((e, index) => {
-        return (
-          <p style={revStyles(index)} key={index}>
-            {e}
-          </p>
-        );
-      })}
-      <p className="annualExpense">Annual Expense </p>
-      {expArray.map((e, index) => {
-        return (
-          <p style={expStyles(index)} key={index}>
-            {e}
-          </p>
-        );
-      })}
-      <p className="annualNoi">Net Operating Income </p>
-      {noiArray.map((e, index) => {
-        return (
-          <p style={noiStyles(index)} key={index}>
-            {e}
-          </p>
-        );
-      })}
-      <p className="initialInvestment">Initial Investment</p>
-      <p style={initInvestStyles()}>{formData.initialInvestment}</p>
-      <p className="additionalCapital">Additional Capital</p>
-      {addCapArray.map((e, index) => {
-        return (
-          <p style={addCapStyles(index)} key={index}>
-            {e}
-          </p>
-        );
-      })}
-      <p className="salePrice">Sale Price </p>
-      {saleArray.map((e, index) => {
-        return (
-          <p style={saleStyles(index)} key={index}>
-            {e}
-          </p>
-        );
-      })}
-      <p className="closingCost">Closing Cost </p>
-      {feeArray.map((e, index) => {
-        return (
-          <p style={feeStyles(index)} key={index}>
-            {e}
-          </p>
-        );
-      })}
-      <p className="cashFlow">Total Cash Flow </p>
-      {cashArray.map((e, index) => {
-        return (
-          <p style={cashStyles(index)} key={index}>
-            {e}
-          </p>
-        );
-      })}
-      <p className="profit">Investor Profit</p>
-      <p className="profitNum">{profit}</p>
-      <p className="roi">Return on Investment</p>
-      <p className="roiNum">{roi}x</p>
+    <div>
+      <div className="output-container">
+        {yearArray.map((e, index) => {
+          return (
+            <p style={yearStyles(index)} key={index}>
+              Yr {index}
+            </p>
+          );
+        })}
+        <p className="annualRevenue">Annual Revenue </p>
+        {revArray.map((e, index) => {
+          return (
+            <p style={revStyles(index)} key={index}>
+              {e}
+            </p>
+          );
+        })}
+        <p className="annualExpense">Annual Expense </p>
+        {expArray.map((e, index) => {
+          return (
+            <p style={expStyles(index)} key={index}>
+              {e}
+            </p>
+          );
+        })}
+        <p className="annualNoi">Net Operating Income </p>
+        {noiArray.map((e, index) => {
+          return (
+            <p style={noiStyles(index)} key={index}>
+              {e}
+            </p>
+          );
+        })}
+        <p className="initialInvestment">Initial Investment</p>
+        <p style={initInvestStyles()}>{formData.initialInvestment}</p>
+        <p className="additionalCapital">Additional Capital</p>
+        {addCapArray.map((e, index) => {
+          return (
+            <p style={addCapStyles(index)} key={index}>
+              {e}
+            </p>
+          );
+        })}
+        <p className="salePrice">Sale Price </p>
+        {saleArray.map((e, index) => {
+          return (
+            <p style={saleStyles(index)} key={index}>
+              {e}
+            </p>
+          );
+        })}
+        <p className="closingCost">Closing Cost </p>
+        {feeArray.map((e, index) => {
+          return (
+            <p style={feeStyles(index)} key={index}>
+              {e}
+            </p>
+          );
+        })}
+        <p className="cashFlow">Total Cash Flow </p>
+        {cashArray &&
+          cashArray.map((e, index) => {
+            return (
+              <p style={cashStyles(index)} key={index}>
+                {e}
+              </p>
+            );
+          })}
+      </div>
+      <div className="profit-wrapper">
+        <p className="profit">Investor Profit</p>
+        <p className="profitNum">{profit}</p>
+        <p className="roi">Return on Investment</p>
+        <p className="roiNum">{roi}</p>
+      </div>
     </div>
   );
 }

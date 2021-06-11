@@ -1,7 +1,7 @@
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import Footer from "./components/Footer";
-import NavBar from "./components/NavBar";
+import Header from "./components/Header";
 import PrevResults from "./components/PrevResults";
 import Form from "./components/Form.jsx";
 import Output from "./components/Output.jsx";
@@ -18,8 +18,8 @@ function App() {
   };
 
   return (
-    <div>
-      <NavBar />
+    <div className="container">
+      <Header />
       <Switch>
         <Route path="/pr/" exact>
           <PrevResults />
@@ -35,16 +35,15 @@ function App() {
             <Output formData={formData} />
           </div>
         </Route>
-        <Route path="/new" exact>
+        <Route path="/" exact>
           <div className="form-output-wrapper">
             <Form
               type={"newForm"}
-              formData={formData}
+              // formData={formData}
               setFormData={setFormData}
             />
             <Output formData={formData} />
           </div>
-          {/* <NewForm editForm={editForm} setEditForm={setEditForm} /> */}
         </Route>
       </Switch>
       <Footer />

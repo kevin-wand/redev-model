@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../App.css";
 
 export default function NavBar() {
   return (
-    <div>
+    <div className="header-links">
       <ul>
         <li>
-          <Link to="/new">New Form</Link>
+          <Link to="/">New Form</Link>
         </li>
         <li>
           <Link to="/pr/">Previous Results</Link>
