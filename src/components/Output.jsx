@@ -273,10 +273,10 @@ export default function Output(props) {
           })}
       </div>
       <div className="profit-wrapper">
-        <p className="profit">Investor Profit</p>
-        <p className="profitNum">{profit}</p>
-        <p className="roi">Return on Investment</p>
-        <p className="roiNum">{roi}</p>
+        <p className="profit-profit">Investor Profit</p>
+        <p className="profit-profit">{profit}</p>
+        <p className="profit-roi">Return on Investment</p>
+        <p className="profit-roi">{roi}</p>
       </div>
     </div>
   );

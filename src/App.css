@@ -48,6 +48,7 @@
     "form-wrapper output-container output-container"
     "form-wrapper profit-wrapper profit-wrapper";
   background-color: goldenrod;
+  height: 600px;
 }
 .form-wrapper {
   display: grid;
@@ -122,20 +123,20 @@
 
 .profit-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 0px 0px;
   grid-template-areas:
-    "profit-labels profit-numbers"
+    "profit-labels profit-numbers ."
     ". . .";
   grid-area: profit-wrapper;
   background-color: dodgerblue;
 }
-.profit-labels {
-  grid-area: profit-labels;
+.profit-profit {
+  grid-row: 1;
 }
-.profit-numbers {
-  grid-area: profit-numbers;
+.profit-roi {
+  grid-row: 2;
 }
 .footer {
   grid-area: footer;
