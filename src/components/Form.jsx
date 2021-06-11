@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, useHistory } from "react-router";
 import { useEffect, useState } from "react";
 import { createProject, editProject } from "../api";
+import NavBar from "./NavBar.jsx";
 
 export default function Form(props) {
   const { formData, setFormData, fetchProject, type } = props || {};
@@ -40,6 +41,7 @@ export default function Form(props) {
 
   return (
     <div className="form-inner-wrapper">
+      <NavBar />
       <form
         className="form-container"
         onChange={handleChange}

@@ -263,8 +263,7 @@ export default function Output(props) {
           );
         })}
         <p className="cashFlow">Total Cash Flow </p>
-        {cashArray > 0 &&
-          cashArray &&
+        {cashArray &&
           cashArray.map((e, index) => {
             return (
               <p style={cashStyles(index)} key={index}>

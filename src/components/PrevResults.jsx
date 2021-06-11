@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { showPrevious, deleteProject } from "../api";
 import { Link } from "react-router-dom";
+import NavBar from "./NavBar.jsx";
 
 export default function PrevResults() {
   const [project, setProject] = useState([]);
@@ -22,6 +23,7 @@ export default function PrevResults() {
 
   return (
     <div>
+      <NavBar />
       {project &&
         project.map((input) => {
           return (
