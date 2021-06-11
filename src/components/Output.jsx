@@ -123,7 +123,7 @@ export default function Output(props) {
   let profit = cashArray.reduce(reducer).toFixed(0);
   let roi = parseFloat(1 + profit / formData.initialInvestment).toFixed(2);
 
-  profit = isNaN(profit) ? "" : profit;
+  profit = isNaN(profit) ? "" : parseInt(profit) === 0 ? "" : profit;
   roi = isNaN(roi) ? "" : roi + "x";
 
   // =======================================================
@@ -263,7 +263,8 @@ export default function Output(props) {
           );
         })}
         <p className="cashFlow">Total Cash Flow </p>
-        {cashArray &&
+        {cashArray > 0 &&
+          cashArray &&
           cashArray.map((e, index) => {
             return (
               <p style={cashStyles(index)} key={index}>
@@ -273,10 +274,10 @@ export default function Output(props) {
           })}
       </div>
       <div className="profit-container">
-        <div className="profit-profit">Investor Profit</div>
-        <div className="profit-profit">{profit}</div>
-        <div className="profit-roi">Return on Investment</div>
-        <div className="profit-roi">{roi}</div>
+        <div className="profit-label">Investor Profit</div>
+        <div className="profit-number">{profit}</div>
+        <div className="roi-label">Return on Investment</div>
+        <div className="roi-number">{roi}</div>
       </div>
     </div>
   );
