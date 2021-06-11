@@ -203,7 +203,7 @@ export default function Output(props) {
   };
 
   return (
-    <div>
+    <div className="output-profit-wrapper">
       <div className="output-container">
         {yearArray.map((e, index) => {
           return (
@@ -272,11 +272,11 @@ export default function Output(props) {
             );
           })}
       </div>
-      <div className="profit-wrapper">
-        <p className="profit-profit">Investor Profit</p>
-        <p className="profit-profit">{profit}</p>
-        <p className="profit-roi">Return on Investment</p>
-        <p className="profit-roi">{roi}</p>
+      <div className="profit-container">
+        <div className="profit-profit">Investor Profit</div>
+        <div className="profit-profit">{profit}</div>
+        <div className="profit-roi">Return on Investment</div>
+        <div className="profit-roi">{roi}</div>
       </div>
     </div>
   );

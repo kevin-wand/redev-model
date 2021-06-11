@@ -38,9 +38,9 @@ export default function Form(props) {
   };
 
   return (
-    <div>
+    <div className="form-inner-wrapper">
       <form
-        className="form-wrapper"
+        className="form-container"
         onChange={handleChange}
         onSubmit={handleSubmit}
       >
