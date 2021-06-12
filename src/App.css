@@ -16,24 +16,95 @@
 .header {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 30% 50%;
+  grid-template-rows: 20% 60% 20%;
   height: 120px;
   gap: 0px 0px;
   grid-template-areas:
     ". . header-links"
-    ". header-title .";
+    ". header-title ."
+    ". . .";
 }
 
 .header-title {
+  display: grid;
   grid-area: header-title;
-  align-items: center;
+  justify-content: center;
+  align-items: start;
+  color: white;
+  border: 2px solid white;
+  padding-bottom: 30px;
+  border-radius: 6px;
 }
 
+/* CSS HEX
+--dark-purple: #270722ff;
+--gainsboro: #dfdfdfff;
+--shadow: #837569ff;
+--dark-olive-green: #657153ff;
+--asparagus: #8aaa79ff;
+*/
+
+#bg1 {
+  grid-column: 3 / 4;
+  grid-row: 1 / 4;
+  background-color: #569b4d;
+  /* background-image: url(https://i.imgur.com/bZjFaNg.png); */
+  background-position: center;
+  /* clip-path: polygon(upper left, upper right, lower right, lower left); */
+  clip-path: polygon(42% 0%, 72% 0, 92% 100%, 66% 100%);
+  z-index: -1;
+}
+
+#bg2 {
+  grid-column: 3 / 4;
+  grid-row: 1 / 4;
+  background-color: #31682a;
+  /* clip-path: polygon(upper left, upper right, lower right, lower left); */
+  clip-path: polygon(32% 0%, 100% 0, 100% 100%, 56% 100%);
+  z-index: -2;
+}
+
+#bg3 {
+  grid-column: 1 / 4;
+  grid-row: 1 / 4;
+  background: linear-gradient(
+    90deg,
+    rgba(71, 92, 83, 1) 0%,
+    rgba(24, 28, 23, 1) 30%,
+    rgb(59, 70, 57) 70%,
+    rgb(53, 109, 51) 100%
+  );
+  clip-path: polygon(80% 0%, 89% 100%, 0 100%, 0 0);
+  z-index: -3;
+}
+
+#bg4 {
+  grid-column: 1 / 2;
+  grid-row: 1 / 4;
+  background-color: #d7d7d7;
+  /* clip-path: polygon(bottom left, upper left, upper right, lower right); */
+  clip-path: polygon(41% 100%, 21% 0, 29% 0%, 50% 100%);
+  z-index: -2;
+}
+
+#bg5 {
+  grid-column: 1 / 2;
+  grid-row: 1 / 4;
+  background-color: #d7d7d7;
+  /* clip-path: polygon(bottom left, upper left, upper right, lower right); */
+  clip-path: polygon(55% 100%, 34% 0, 39% 0%, 60% 100%);
+  z-index: -2;
+}
 .form-output-wrapper {
   /* background-color: goldenrod; */
+  margin-top: 2%;
   margin-left: 2%;
   margin-right: 2%;
+  margin-bottom: 1%;
   display: grid;
+  justify-content: space-between;
+  border: 2px solid darkslategray;
+  border-radius: 6px;
   grid-template-columns: minmax(320px, 20%) 70%;
   height: 700px;
   grid-template-rows: 600px 100px;
@@ -59,7 +130,7 @@
 }
 
 .form-container {
-  background-color: coral;
+  background-color: lightgray;
   grid-area: form-container;
   display: grid;
   height: 100%;
@@ -89,7 +160,7 @@
 }
 
 .output-container {
-  background-color: indianred;
+  /* background-color: indianred; */
   display: grid;
   grid-area: output-container;
   width: 100%;
@@ -99,7 +170,7 @@
   grid-template-rows: repeat(auto-fill);
 }
 .profit-container {
-  background-color: dodgerblue;
+  /* background-color: dodgerblue; */
   display: grid;
   grid-template-columns: 1fr 0.5fr 1.3fr;
   grid-template-rows: 2rem 2rem;
@@ -172,4 +243,7 @@
 }
 .footer {
   grid-area: footer;
+  position: absolute;
+  bottom: 0;
+  background-color: black;
 }
