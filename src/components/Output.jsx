@@ -2,7 +2,6 @@ import React from "react";
 
 export default function Output(props) {
   const { formData } = props;
-  console.log(formData);
   let time = formData.holdPeriod;
 
   // =======================================================

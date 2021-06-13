@@ -6,16 +6,9 @@ import PrevResults from "./components/PrevResults";
 import Form from "./components/Form.jsx";
 import Output from "./components/Output.jsx";
 import { useState } from "react";
-import { getProject } from "./api";
 
 function App() {
   const [formData, setFormData] = useState({});
-
-  const fetchProject = async (id) => {
-    const res = await getProject(id);
-    // console.log(res.fields);
-    setFormData(res.fields);
-  };
 
   return (
     <div className="container">
@@ -26,22 +19,13 @@ function App() {
         </Route>
         <Route path="/edit/pr/:id" exact>
           <div className="form-output-wrapper">
-            <Form
-              type={"filledForm"}
-              fetchProject={fetchProject}
-              formData={formData}
-              setFormData={setFormData}
-            />
+            <Form formData={formData} setFormData={setFormData} />
             <Output formData={formData} />
           </div>
         </Route>
         <Route path="/" exact>
           <div className="form-output-wrapper">
-            <Form
-              type={"newForm"}
-              // formData={formData}
-              setFormData={setFormData}
-            />
+            <Form formData={formData} setFormData={setFormData} />
             <Output formData={formData} />
           </div>
         </Route>
