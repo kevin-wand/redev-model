@@ -9,21 +9,22 @@ export default function Form(props) {
   const [edit, setEdit] = useState(false);
   const { id } = useParams();
   const history = useHistory();
-  console.log(type);
+  // console.log(type);
 
   useEffect(() => {
+    console.log("inside use effect");
     if (type === "newForm") {
-      // setFormData({});
-      setEdit(false);
+      setFormData({});
+      // setEdit(false);
       history.push("/");
     } else if (type === "filledForm") {
       setEdit(true);
       fetchProject && fetchProject(id);
     }
     //eslint-disable-next-line
-  }, []);
+  }, [type]);
 
-  console.log(edit);
+  // console.log(edit);
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (type === "filledForm") {
@@ -47,6 +48,7 @@ export default function Form(props) {
         onChange={handleChange}
         onSubmit={handleSubmit}
       >
+        {console.log("inside form")}
         <label htmlFor="projName">Project Name: </label>
         <input
           id="projName"
@@ -128,6 +130,7 @@ export default function Form(props) {
         />
         <br />
         <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
       </form>
     </div>
   );
