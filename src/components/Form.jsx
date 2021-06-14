@@ -57,7 +57,7 @@ export default function Form(props) {
           id="projName"
           type="text"
           name="projectName"
-          value={formData.projectName ?? ""}
+          defaultValue={formData.projectName ?? ""}
         />
         <br />
         <label className="form-labels" htmlFor="initialInvestment">
@@ -68,7 +68,7 @@ export default function Form(props) {
           id="initialInvestment"
           type="number"
           name="initialInvestment"
-          value={formData.initialInvestment ?? ""}
+          defaultValue={formData.initialInvestment ?? ""}
           min="0"
         />
         <br />
@@ -80,8 +80,7 @@ export default function Form(props) {
           id="addCapital"
           type="number"
           name="additionalCapital"
-          defaultValue=""
-          value={formData.additionalCapital ?? ""}
+          defaultValue={formData.additionalCapital ?? ""}
           min="0"
         />
         <br />
@@ -93,7 +92,7 @@ export default function Form(props) {
           id="holdPeriod"
           type="number"
           name="holdPeriod"
-          value={formData.holdPeriod ?? ""}
+          defaultValue={formData.holdPeriod ?? ""}
           min="0"
         />
         <br />
@@ -105,7 +104,7 @@ export default function Form(props) {
           id="annualRev"
           type="number"
           name="annualRevenue"
-          value={formData.annualRevenue ?? ""}
+          defaultValue={formData.annualRevenue ?? ""}
           min="0"
         />
         <br />
@@ -117,7 +116,7 @@ export default function Form(props) {
           id="annualExp"
           type="number"
           name="annualExpense"
-          value={formData.annualExpense ?? ""}
+          defaultValue={formData.annualExpense ?? ""}
           min="0"
         />
         <br />
@@ -129,7 +128,7 @@ export default function Form(props) {
           id="closingCost"
           type="number"
           name="closingCost"
-          value={formData.closingCost ?? ""}
+          defaultValue={formData.closingCost ?? ""}
           min="0"
         />
         <br />
@@ -141,7 +140,7 @@ export default function Form(props) {
           id="growthRev"
           type="number"
           name="revenueGrowthRate"
-          value={formData.revenueGrowthRate ?? ""}
+          defaultValue={formData.revenueGrowthRate ?? ""}
           min="0"
         />
         <br />
@@ -153,7 +152,7 @@ export default function Form(props) {
           id="growthExp"
           type="number"
           name="expenseGrowthRate"
-          value={formData.expenseGrowthRate ?? ""}
+          defaultValue={formData.expenseGrowthRate ?? ""}
           min="0"
         />
         <br />
@@ -165,7 +164,7 @@ export default function Form(props) {
           id="capRate"
           type="number"
           name="capRate"
-          value={formData.capRate ?? ""}
+          defaultValue={formData.capRate ?? ""}
           min="0"
         />
         <br />
