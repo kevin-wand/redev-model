@@ -46,15 +46,23 @@ export default function PrevResults() {
             return (
               <div key={project.id} className="prev-res">
                 <p className="pr-grid-1">{project.fields.projectName}</p>
-                <p className="pr-grid-2">{project.fields.initialInvestment}</p>
-                <p className="pr-grid-3">{project.fields.additionalCapital}</p>
-                <p className="pr-grid-4">{project.fields.annualRevenue}</p>
-                <p className="pr-grid-5">{project.fields.annualExpense}</p>
-                <p className="pr-grid-6">{project.fields.closingCost}</p>
-                <p className="pr-grid-7">{project.fields.revenueGrowthRate}</p>
-                <p className="pr-grid-8">{project.fields.expenseGrowthRate}</p>
+                <p className="pr-grid-2">
+                  ${parseInt(project.fields.initialInvestment).toLocaleString()}
+                </p>
+                <p className="pr-grid-3">
+                  ${parseInt(project.fields.additionalCapital).toLocaleString()}
+                </p>
+                <p className="pr-grid-4">
+                  ${parseInt(project.fields.annualRevenue).toLocaleString()}
+                </p>
+                <p className="pr-grid-5">
+                  ${parseInt(project.fields.annualExpense).toLocaleString()}
+                </p>
+                <p className="pr-grid-6">{project.fields.closingCost}%</p>
+                <p className="pr-grid-7">{project.fields.revenueGrowthRate}%</p>
+                <p className="pr-grid-8">{project.fields.expenseGrowthRate}%</p>
                 <p className="pr-grid-9">{project.fields.holdPeriod}</p>
-                <p className="pr-grid-10">{project.fields.capRate}</p>
+                <p className="pr-grid-10">{project.fields.capRate}%</p>
                 <Link to={`/edit/pr/${project.id}`} className="pr-grid-11">
                   Edit
                 </Link>

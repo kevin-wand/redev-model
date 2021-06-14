@@ -65,6 +65,13 @@
   border-radius: 6px;
 }
 
+@media screen and (max-width: 700px) {
+  .header-title {
+    font-size: 1.3rem;
+    padding-top: 5px;
+  }
+}
+
 ul {
   display: flex;
   flex-direction: row;
@@ -205,6 +212,74 @@ li {
   grid-column: 12/13;
 }
 
+@media screen and (max-width: 1100px) {
+  .prev-res {
+    font-size: 73%;
+  }
+  .pr-container {
+    width: 100%;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+  .pr-headers,
+  .prev-res {
+    grid-template-columns: repeat(10, 1fr);
+  }
+
+  .pr-grid-7 {
+    display: none;
+  }
+  .pr-grid-8 {
+    display: none;
+  }
+  .pr-grid-9 {
+    grid-column: 7/8;
+  }
+  .pr-grid-10 {
+    grid-column: 8/9;
+  }
+
+  .pr-grid-11 {
+    grid-column: 9/10;
+  }
+
+  .pr-grid-12 {
+    grid-column: 10/11;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .pr-headers,
+  .prev-res {
+    grid-template-columns: repeat(8, 1fr);
+  }
+  .pr-grid-5 {
+    display: none;
+  }
+  .pr-grid-6 {
+    display: none;
+  }
+  .pr-grid-7 {
+    display: none;
+  }
+  .pr-grid-8 {
+    display: none;
+  }
+  .pr-grid-9 {
+    grid-column: 5/6;
+  }
+  .pr-grid-10 {
+    grid-column: 6/7;
+  }
+
+  .pr-grid-11 {
+    grid-column: 7/8;
+  }
+
+  .pr-grid-12 {
+    grid-column: 8/9;
+  }
+}
 /*
 =================================================================
 =================================================================
@@ -396,6 +471,35 @@ li {
   grid-row: 11;
 }
 
+@media screen and (max-width: 1000px) {
+  .output-profit-wrapper {
+    width: 80%;
+    overflow: hidden;
+  }
+}
+@media screen and (max-width: 800px) {
+  .output-container {
+    display: none;
+  }
+  .form-output-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-left: 25%;
+  }
+  .form-inner-wrapper {
+    padding-top: 10px;
+  }
+  .form-container {
+    padding-top: 10px;
+    margin-top: 10px;
+    height: 500px;
+  }
+  .output-profit-wrapper {
+    grid-template-columns: 2rem 2rem;
+    grid-template-rows: 2rem 2rem;
+  }
+}
+
 /* 
 ===========================================================
 ====================  PROFIT DETAIL =======================
@@ -455,7 +559,7 @@ li {
   padding-top: 8px;
   padding-bottom: 8px;
   grid-column: 1/15;
-  background-color: red;
+  background-color: lightgreen;
 }
 
 /* 
@@ -466,12 +570,40 @@ li {
 
 .blank-form {
   position: absolute;
-  background-image: url(https://i.imgur.com/2xN7SKi.jpg);
+  background-image: url(https://i.imgur.com/k5NKNtC.jpg);
   z-index: 1;
-  left: 30vw;
-  width: 60vw;
+  left: 40%;
+  width: 55%;
   height: 65vh;
   text-align: center;
+  background-size: cover;
+  background-position-y: 58%;
+  margin-top: 1%;
+  border-radius: 3px;
+}
+
+@media screen and (max-width: 900px) {
+  .blank-form {
+    background-color: green;
+    background-image: url(https://i.imgur.com/cyCMMj5.jpg);
+    background-blend-mode: hard-light;
+    left: 400px;
+    width: 22rem;
+    margin-top: 1%;
+    right: 400px;
+    background-position-x: 10%;
+    background-position-y: 10%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .blank-form {
+    display: none;
+    /* background-color: gray;
+    background-image: none;
+    left: 360px;
+    width: 35%;
+    margin-top: 1%; */
+  }
 }
 
 /* 
