@@ -215,7 +215,7 @@ export default function Output(props) {
         {revArray.map((e, index) => {
           return (
             <p style={revStyles(index)} key={index}>
-              {e}
+              {parseInt(e).toLocaleString()}
             </p>
           );
         })}
@@ -223,7 +223,7 @@ export default function Output(props) {
         {expArray.map((e, index) => {
           return (
             <p style={expStyles(index)} key={index}>
-              {e}
+              {parseInt(e).toLocaleString()}
             </p>
           );
         })}
@@ -231,17 +231,19 @@ export default function Output(props) {
         {noiArray.map((e, index) => {
           return (
             <p style={noiStyles(index)} key={index}>
-              {e}
+              {parseInt(e).toLocaleString()}
             </p>
           );
         })}
         <p className="initialInvestment">Initial Investment</p>
-        <p style={initInvestStyles()}>{formData.initialInvestment}</p>
+        <p style={initInvestStyles()}>
+          {parseInt(formData.initialInvestment).toLocaleString()}
+        </p>
         <p className="additionalCapital">Additional Capital</p>
         {addCapArray.map((e, index) => {
           return (
             <p style={addCapStyles(index)} key={index}>
-              {e}
+              {parseInt(e).toLocaleString()}
             </p>
           );
         })}
@@ -249,7 +251,7 @@ export default function Output(props) {
         {saleArray.map((e, index) => {
           return (
             <p style={saleStyles(index)} key={index}>
-              {e}
+              {e === "" ? "" : parseInt(e).toLocaleString()}
             </p>
           );
         })}
@@ -257,7 +259,7 @@ export default function Output(props) {
         {feeArray.map((e, index) => {
           return (
             <p style={feeStyles(index)} key={index}>
-              {e}
+              {e === "" ? "" : parseInt(e).toLocaleString()}
             </p>
           );
         })}
@@ -266,14 +268,14 @@ export default function Output(props) {
           cashArray.map((e, index) => {
             return (
               <p style={cashStyles(index)} key={index}>
-                {e}
+                {parseInt(e).toLocaleString()}
               </p>
             );
           })}
       </div>
       <div className="profit-container">
         <div className="profit-label">Investor Profit</div>
-        <div className="profit-number">{profit}</div>
+        <div className="profit-number">{parseInt(profit).toLocaleString()}</div>
         <div className="roi-label">Return on Investment</div>
         <div className="roi-number">{roi}</div>
       </div>
