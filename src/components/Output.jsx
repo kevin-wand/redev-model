@@ -19,7 +19,9 @@ export default function Output(props) {
       revArray.push(parseInt(formData.annualRevenue));
     } else {
       revArray.push(
-        parseInt(revArray[j - 1] * (1 + parseFloat(formData.revenueGrowthRate)))
+        parseInt(
+          revArray[j - 1] * (1 + parseFloat(formData.revenueGrowthRate / 100))
+        )
       );
     }
   }
@@ -30,7 +32,9 @@ export default function Output(props) {
       expArray.push(parseInt(formData.annualExpense));
     } else {
       expArray.push(
-        parseInt(expArray[j - 1] * (1 + parseFloat(formData.expenseGrowthRate)))
+        parseInt(
+          expArray[j - 1] * (1 + parseFloat(formData.expenseGrowthRate / 100))
+        )
       );
     }
   }
@@ -44,10 +48,10 @@ export default function Output(props) {
     } else {
       noiArray.push(
         parseInt(
-          revArray[j - 1] * (1 + parseFloat(formData.revenueGrowthRate))
+          revArray[j - 1] * (1 + parseFloat(formData.revenueGrowthRate / 100))
         ) -
           parseInt(
-            expArray[j - 1] * (1 + parseFloat(formData.expenseGrowthRate))
+            expArray[j - 1] * (1 + parseFloat(formData.expenseGrowthRate / 100))
           )
       );
     }
@@ -69,7 +73,9 @@ export default function Output(props) {
     } else if (j < time) {
       saleArray.push("");
     } else {
-      saleArray.push(parseInt(noiArray[j] / parseFloat(formData.capRate)));
+      saleArray.push(
+        parseInt(noiArray[j] / parseFloat(formData.capRate / 100))
+      );
     }
   }
 
@@ -78,7 +84,7 @@ export default function Output(props) {
     if (j < time) {
       feeArray.push("");
     } else {
-      feeArray.push(saleArray[j] * parseFloat(formData.closingCost));
+      feeArray.push(saleArray[j] * parseFloat(formData.closingCost / 100));
     }
   }
 
@@ -95,25 +101,25 @@ export default function Output(props) {
     } else if (j > 0 && j + 1 < time) {
       cashArray.push(
         parseInt(
-          revArray[j - 1] * (1 + parseFloat(formData.revenueGrowthRate))
+          revArray[j - 1] * (1 + parseFloat(formData.revenueGrowthRate / 100))
         ) -
           parseInt(
-            expArray[j - 1] * (1 + parseFloat(formData.expenseGrowthRate))
+            expArray[j - 1] * (1 + parseFloat(formData.expenseGrowthRate / 100))
           ) +
           parseInt(addCapArray[j - 1])
       );
     } else if (j < time) {
       cashArray.push(
         parseInt(
-          revArray[j - 1] * (1 + parseFloat(formData.revenueGrowthRate))
+          revArray[j - 1] * (1 + parseFloat(formData.revenueGrowthRate / 100))
         ) -
           parseInt(
-            expArray[j - 1] * (1 + parseFloat(formData.expenseGrowthRate))
+            expArray[j - 1] * (1 + parseFloat(formData.expenseGrowthRate / 100))
           ) +
           parseInt(addCapArray[j - 1]) +
-          parseInt(noiArray[j + 1] / parseFloat(formData.capRate)) -
-          parseInt(noiArray[j + 1] / parseFloat(formData.capRate)) *
-            parseFloat(formData.closingCost)
+          parseInt(noiArray[j + 1] / parseFloat(formData.capRate / 100)) -
+          parseInt(noiArray[j + 1] / parseFloat(formData.capRate / 100)) *
+            parseFloat(formData.closingCost / 100)
       );
     }
   }
@@ -207,78 +213,111 @@ export default function Output(props) {
         {yearArray.map((e, index) => {
           return (
             <p style={yearStyles(index)} key={index}>
-              {parseInt(index) === parseInt(time) + 1
-                ? "Valuation"
-                : "Yr " + index}
+              <strong>
+                {parseInt(index) === parseInt(time) + 1
+                  ? "Valuation"
+                  : "Yr " + index}
+              </strong>
             </p>
           );
         })}
-        <p className="annualRevenue">Annual Revenue </p>
+        <p className="annualRevenue">
+          <strong>Annual Revenue</strong>
+        </p>
         {revArray.map((e, index) => {
           return (
-            <p style={revStyles(index)} key={index}>
-              {parseInt(e).toLocaleString()}
+            <p className="output-numbers" style={revStyles(index)} key={index}>
+              ${parseInt(e).toLocaleString()}
             </p>
           );
         })}
-        <p className="annualExpense">Annual Expense </p>
+        <p className="annualExpense">
+          <strong>Annual Expense</strong>
+        </p>
         {expArray.map((e, index) => {
           return (
-            <p style={expStyles(index)} key={index}>
-              {parseInt(e).toLocaleString()}
+            <p className="output-numbers" style={expStyles(index)} key={index}>
+              ${parseInt(e).toLocaleString()}
             </p>
           );
         })}
-        <p className="annualNoi">Net Operating Income </p>
+        <p className="annualNoi">
+          <strong>Net Operating Income</strong>
+        </p>
         {noiArray.map((e, index) => {
           return (
-            <p style={noiStyles(index)} key={index}>
-              {parseInt(e).toLocaleString()}
+            <p className="output-numbers" style={noiStyles(index)} key={index}>
+              ${parseInt(e).toLocaleString()}
             </p>
           );
         })}
-        <p className="initialInvestment">Initial Investment</p>
-        <p style={initInvestStyles()}>
-          {parseInt(formData.initialInvestment).toLocaleString()}
+        <p className="initialInvestment">
+          <strong>Initial Investment</strong>
         </p>
-        <p className="additionalCapital">Additional Capital</p>
+        <p className="output-numbers" style={initInvestStyles()}>
+          ${parseInt(formData.initialInvestment).toLocaleString()}
+        </p>
+        <p className="additionalCapital">
+          <strong>Additional Capital</strong>
+        </p>
         {addCapArray.map((e, index) => {
           return (
-            <p style={addCapStyles(index)} key={index}>
-              {parseInt(e).toLocaleString()}
+            <p
+              className="output-numbers"
+              style={addCapStyles(index)}
+              key={index}
+            >
+              ${parseInt(e).toLocaleString()}
             </p>
           );
         })}
-        <p className="salePrice">Sale Price </p>
+        <p className="salePrice">
+          <strong>Sale Price</strong>
+        </p>
         {saleArray.map((e, index) => {
           return (
-            <p style={saleStyles(index)} key={index}>
-              {e === "" ? "" : parseInt(e).toLocaleString()}
+            <p className="output-numbers" style={saleStyles(index)} key={index}>
+              {e === "" ? "" : `$${parseInt(e).toLocaleString()}`}
             </p>
           );
         })}
-        <p className="closingCost">Closing Cost </p>
+        <p className="closingCost">
+          <strong>Closing Cost</strong>
+        </p>
         {feeArray.map((e, index) => {
           return (
-            <p style={feeStyles(index)} key={index}>
-              {e === "" ? "" : parseInt(e).toLocaleString()}
+            <p className="output-numbers" style={feeStyles(index)} key={index}>
+              {e === "" ? "" : `$${parseInt(e).toLocaleString()}`}
             </p>
           );
         })}
-        <p className="cashFlow">Total Cash Flow </p>
+        <p className="cashFlow">
+          <strong>Total Cash Flow</strong>
+        </p>
         {cashArray &&
           cashArray.map((e, index) => {
             return (
-              <p style={cashStyles(index)} key={index}>
-                {parseInt(e).toLocaleString()}
+              <p
+                className="output-numbers"
+                style={cashStyles(index)}
+                key={index}
+              >
+                ${parseInt(e).toLocaleString()}
               </p>
             );
           })}
+        <div className="row-colors"></div>
       </div>
       <div className="profit-container">
-        <div className="profit-label">Investor Profit</div>
-        <div className="profit-number">{parseInt(profit).toLocaleString()}</div>
-        <div className="roi-label">Return on Investment</div>
+        <div className="profit-label">
+          <strong>Investor Profit</strong>
+        </div>
+        <div className="profit-number">
+          ${parseInt(profit).toLocaleString()}
+        </div>
+        <div className="roi-label">
+          <strong>Return on Investment</strong>
+        </div>
         <div className="roi-number">{roi}</div>
       </div>
     </div>

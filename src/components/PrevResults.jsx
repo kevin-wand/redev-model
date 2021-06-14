@@ -23,27 +23,51 @@ export default function PrevResults() {
   };
 
   return (
-    <div>
+    <div className="pr-container">
       <NavBar />
-      {projects &&
-        projects.map((project) => {
-          return (
-            <div key={project.id}>
-              <h2>Project Name: {project.fields.projectName}</h2>
-              <p>Initial Investment: {project.fields.initialInvestment}</p>
-              <p>Additional Capital: {project.fields.additionalCapital}</p>
-              <p>Annual Revenue: {project.fields.annualRevenue}</p>
-              <p>Annual Expense: {project.fields.annualExpense}</p>
-              <p>Closing Cost: {project.fields.closingCost}</p>
-              <p>Revenue Growth Rate: {project.fields.revenueGrowthRate}</p>
-              <p>Expense Growth Rate: {project.fields.expenseGrowthRate}</p>
-              <p>Hold Period: {project.fields.holdPeriod}</p>
-              <p>Cap Rate: {project.fields.capRate}</p>
-              <Link to={`/edit/pr/${project.id}`}>Edit</Link>
-              <button onClick={() => handleDelete(project.id)}>Delete</button>
-            </div>
-          );
-        })}
+
+      <div className="pr-wrapper">
+        <div className="pr-headers">
+          <h4 className="pr-grid-1">Project Name</h4>
+          <h4 className="pr-grid-2">Initial Investment</h4>
+          <h4 className="pr-grid-3">Additional Capital</h4>
+          <h4 className="pr-grid-4">Annual Revenue</h4>
+          <h4 className="pr-grid-5">Annual Expense</h4>
+          <h4 className="pr-grid-6">Closing Cost</h4>
+          <h4 className="pr-grid-7">Revenue Growth</h4>
+          <h4 className="pr-grid-8">Expense Growth</h4>
+          <h4 className="pr-grid-9">Hold Period</h4>
+          <h4 className="pr-grid-10">Cap Rate</h4>
+          <h4 className="pr-grid-11">Edit Results</h4>
+          <h4 className="pr-grid-12">Delete Results</h4>
+        </div>
+        {projects &&
+          projects.map((project) => {
+            return (
+              <div key={project.id} className="prev-res">
+                <p className="pr-grid-1">{project.fields.projectName}</p>
+                <p className="pr-grid-2">{project.fields.initialInvestment}</p>
+                <p className="pr-grid-3">{project.fields.additionalCapital}</p>
+                <p className="pr-grid-4">{project.fields.annualRevenue}</p>
+                <p className="pr-grid-5">{project.fields.annualExpense}</p>
+                <p className="pr-grid-6">{project.fields.closingCost}</p>
+                <p className="pr-grid-7">{project.fields.revenueGrowthRate}</p>
+                <p className="pr-grid-8">{project.fields.expenseGrowthRate}</p>
+                <p className="pr-grid-9">{project.fields.holdPeriod}</p>
+                <p className="pr-grid-10">{project.fields.capRate}</p>
+                <Link to={`/edit/pr/${project.id}`} className="pr-grid-11">
+                  Edit
+                </Link>
+                <button
+                  onClick={() => handleDelete(project.id)}
+                  className="pr-grid-12"
+                >
+                  Delete
+                </button>
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 }

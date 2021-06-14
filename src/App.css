@@ -12,9 +12,12 @@
 .container {
   display: block;
   bottom: 0;
+  height: 100vh;
 }
 
 * {
+  /* font-family: "Montserrat", sans-serif; */
+  font-family: "Lato", sans-serif;
   /* border: 1px solid black; */
 }
 
@@ -39,9 +42,16 @@
   height: 120px;
   gap: 0px 0px;
   grid-template-areas:
-    ". . header-links"
-    ". header-title ."
+    ". . ."
+    ". header-title  header-links"
     ". . .";
+}
+
+.login {
+  grid-area: header-links;
+  display: grid;
+  justify-content: end;
+  padding-right: 10%;
 }
 
 .header-title {
@@ -61,6 +71,7 @@ ul {
   /* padding: 0px 25px 0px 25px; */
   /* margin: 0; */
   list-style: none;
+  justify-content: center;
 }
 
 li {
@@ -130,6 +141,69 @@ li {
   clip-path: polygon(51% 100%, 36% 0, 45% 0%, 60% 100%);
   z-index: -4;
 }
+/*
+=================================================================
+=================================================================
+===================   PREVIOUS RESULTS   =======================
+=================================================================
+=================================================================
+*/
+.pr-container {
+  height: 75vh;
+}
+.pr-wrapper {
+  display: grid;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.pr-headers,
+.prev-res {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(auto-fill);
+  justify-items: center;
+  align-items: center;
+}
+
+.pr-grid-1 {
+  grid-column: 1 / 2;
+}
+.pr-grid-2 {
+  grid-column: 2/3;
+}
+.pr-grid-3 {
+  grid-column: 3/4;
+}
+.pr-grid-4 {
+  grid-column: 4/5;
+}
+.pr-grid-5 {
+  grid-column: 5/6;
+}
+.pr-grid-6 {
+  grid-column: 6/7;
+}
+.pr-grid-7 {
+  grid-column: 7/8;
+}
+.pr-grid-8 {
+  grid-column: 8/9;
+}
+.pr-grid-9 {
+  grid-column: 9/10;
+}
+.pr-grid-10 {
+  grid-column: 10/11;
+}
+
+.pr-grid-11 {
+  grid-column: 11/12;
+}
+
+.pr-grid-12 {
+  grid-column: 12/13;
+}
 
 /*
 =================================================================
@@ -170,10 +244,11 @@ li {
   width: 100%;
   height: 100%;
   grid-template-columns: minmax(320px, 20%) 70%;
-  grid-template-rows: 10% 90%;
+  grid-template-rows: 10% 80% 10%;
   grid-template-areas:
     "header-links"
-    "form-container";
+    "form-container"
+    "form-button";
 }
 
 .header-links {
@@ -192,9 +267,16 @@ li {
 }
 .form-labels {
   padding-left: 5px;
+  padding-right: 10px;
 }
 .form-numbers {
   padding-left: 5px;
+}
+.form-button {
+  display: grid;
+  grid-area: "form-button";
+  justify-content: end;
+  /* background-color: red; */
 }
 
 /*
@@ -214,6 +296,7 @@ li {
     "profit-container .";
   width: 100%;
   height: 100%;
+  padding-top: 3px;
 }
 
 /*
@@ -225,6 +308,7 @@ li {
 .output-container {
   /* background-color: indianred; */
   display: grid;
+  align-items: center;
   grid-area: output-container;
   width: 100%;
   height: auto;
@@ -232,15 +316,37 @@ li {
   grid-template-columns: repeat(auto-fill);
   grid-template-rows: repeat(auto-fill);
 }
+
 .profit-container {
-  /* background-color: dodgerblue; */
+  /* border: 1px solid green; */
   display: grid;
-  grid-template-columns: 1fr 0.5fr 1.3fr;
+  grid-template-columns: 12rem 8rem;
   grid-template-rows: 2rem 2rem;
   grid-area: profit-container;
+  /* justify-content: center; */
   align-items: center;
   gap: 0px 0px;
   height: 68px;
+}
+
+.row-colors {
+  grid-area: output-container;
+  grid-row: -1/3;
+  grid-column: 1/15;
+  background-color: red;
+  border: 1px solid black;
+  z-index: 0;
+}
+
+.annualRevenue,
+.annualExpense,
+.annualNoi,
+.initialInvestment,
+.additionalCapital,
+.salePrice,
+.closingCost,
+.cashFlow {
+  padding-left: 5px;
 }
 
 .annualRevenue {
@@ -248,6 +354,7 @@ li {
   grid-column: 1;
   grid-row: 2;
 }
+
 .annualExpense {
   grid-area: output-container;
   grid-column: 1;
@@ -258,30 +365,59 @@ li {
   grid-column: 1;
   grid-row: 4;
 }
+
 .initialInvestment {
   grid-area: output-container;
   grid-column: 1;
   grid-row: 7;
 }
+
 .additionalCapital {
   grid-area: output-container;
   grid-column: 1;
   grid-row: 8;
 }
+
 .salePrice {
   grid-area: output-container;
   grid-column: 1;
   grid-row: 9;
 }
+
 .closingCost {
   grid-area: output-container;
   grid-column: 1;
   grid-row: 10;
 }
+
 .cashFlow {
   grid-area: output-container;
   grid-column: 1;
   grid-row: 11;
+}
+
+/* 
+===========================================================
+====================  PROFIT DETAIL =======================
+===========================================================
+*/
+
+/* .profit-label,
+.profit-number,
+.roi-label,
+.roi-number {
+} */
+
+.profit-label,
+.roi-label {
+  padding-left: 5px;
+  border: 1px solid black;
+}
+
+.profit-number,
+.roi-number {
+  padding-left: 10px;
+  border: 1px solid black;
 }
 
 .profit-label {
@@ -289,6 +425,7 @@ li {
   grid-row: 1;
   grid-column: 1;
 }
+
 .profit-number {
   grid-area: profit-container;
   grid-row: 1;
@@ -304,6 +441,29 @@ li {
   grid-row: 2;
   grid-column: 2;
 }
+
+/* 
+==================================================================
+==================================================================
+===================== GRID ROW COLORING ==========================
+==================================================================
+==================================================================
+*/
+
+.annualNoi,
+.cashFlow {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  grid-column: 1/15;
+  background-color: red;
+}
+
+/* 
+==================================================================
+============================= FOOTER==============================
+==================================================================
+*/
+
 .footer {
   position: sticky;
   width: 100vw;

@@ -161,7 +161,9 @@ export default function Form(props) {
           value={formData.capRate ?? ""}
         />
         <br />
-        <button type="submit">Submit</button>
+        <div className="form-button">
+          <button type="submit">Submit</button>
+        </div>
       </form>
     </div>
   );
