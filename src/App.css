@@ -13,12 +13,7 @@
   display: block;
   bottom: 0;
   height: 100vh;
-}
-
-* {
-  /* font-family: "Montserrat", sans-serif; */
   font-family: "Lato", sans-serif;
-  /* border: 1px solid black; */
 }
 
 /*
@@ -55,6 +50,7 @@
 }
 
 .header-title {
+  font-family: "Montserrat", sans-serif;
   display: grid;
   grid-area: header-title;
   justify-content: center;
@@ -65,10 +61,17 @@
   border-radius: 6px;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
   .header-title {
     font-size: 1.3rem;
-    padding-top: 5px;
+    padding-top: 8px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .header-title {
+    font-size: 0.9rem;
+    padding-top: 14px;
   }
 }
 

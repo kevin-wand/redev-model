@@ -17,7 +17,6 @@ export default function Form(props) {
         const res = await getProject(id);
         res && setFormData(res.fields);
       }
-      console.log(formData);
     };
     fetchProject();
     //eslint-disable-next-line
