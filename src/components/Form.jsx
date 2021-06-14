@@ -70,6 +70,7 @@ export default function Form(props) {
           type="number"
           name="initialInvestment"
           value={formData.initialInvestment ?? ""}
+          min="0"
         />
         <br />
         <label className="form-labels" htmlFor="addCapital">
@@ -82,6 +83,7 @@ export default function Form(props) {
           name="additionalCapital"
           defaultValue=""
           value={formData.additionalCapital ?? ""}
+          min="0"
         />
         <br />
         <label className="form-labels" htmlFor="holdPeriod">
@@ -93,6 +95,7 @@ export default function Form(props) {
           type="number"
           name="holdPeriod"
           value={formData.holdPeriod ?? ""}
+          min="0"
         />
         <br />
         <label className="form-labels" htmlFor="annualRev">
@@ -104,6 +107,7 @@ export default function Form(props) {
           type="number"
           name="annualRevenue"
           value={formData.annualRevenue ?? ""}
+          min="0"
         />
         <br />
         <label className="form-labels" htmlFor="annualExp">
@@ -115,6 +119,7 @@ export default function Form(props) {
           type="number"
           name="annualExpense"
           value={formData.annualExpense ?? ""}
+          min="0"
         />
         <br />
         <label className="form-labels" htmlFor="closingCost">
@@ -126,6 +131,7 @@ export default function Form(props) {
           type="number"
           name="closingCost"
           value={formData.closingCost ?? ""}
+          min="0"
         />
         <br />
         <label className="form-labels" htmlFor="growthRev">
@@ -137,6 +143,7 @@ export default function Form(props) {
           type="number"
           name="revenueGrowthRate"
           value={formData.revenueGrowthRate ?? ""}
+          min="0"
         />
         <br />
         <label className="form-labels" htmlFor="growthExp">
@@ -148,6 +155,7 @@ export default function Form(props) {
           type="number"
           name="expenseGrowthRate"
           value={formData.expenseGrowthRate ?? ""}
+          min="0"
         />
         <br />
         <label className="form-labels" htmlFor="capRate">
@@ -159,6 +167,7 @@ export default function Form(props) {
           type="number"
           name="capRate"
           value={formData.capRate ?? ""}
+          min="0"
         />
         <br />
         <div className="form-button">

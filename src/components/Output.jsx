@@ -128,8 +128,8 @@ export default function Output(props) {
   let profit = cashArray.reduce(reducer).toFixed(0);
   let roi = parseFloat(1 + profit / formData.initialInvestment).toFixed(2);
 
-  profit = isNaN(profit) ? "" : parseInt(profit) === 0 ? "" : profit;
-  roi = isNaN(roi) ? "" : roi + "x";
+  profit = isNaN(profit) ? "" : isNaN(parseInt(profit)) ? "n/a" : profit;
+  roi = isNaN(roi) ? "n/a" : roi + "x";
 
   // =======================================================
   // ============= COLUMN POSITION FOR OUTPUT ==============
