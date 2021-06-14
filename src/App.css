@@ -570,15 +570,16 @@ li {
 
 .blank-form {
   position: absolute;
-  background-image: url(https://i.imgur.com/k5NKNtC.jpg);
+  background-image: url(https://i.imgur.com/ahiE0i2.jpg);
   z-index: 1;
   left: 35%;
   width: 55%;
   height: 65vh;
   text-align: center;
   background-size: cover;
+  background-position-x: 20%;
   background-position-y: 58%;
-  margin-top: 1%;
+  margin-top: 2.7rem;
   border-radius: 3px;
 }
 
@@ -588,11 +589,11 @@ li {
   }
   .blank-form {
     background-color: green;
-    background-image: url(https://i.imgur.com/cyCMMj5.jpg);
-    background-blend-mode: screen;
+    background-image: url(https://i.imgur.com/k5NKNtC.jpg);
+    background-blend-mode: hard-light;
     left: 400px;
     width: 45vw;
-    margin-top: 1%;
+    margin-top: 2.7rem;
     right: 400px;
     background-position-x: 10%;
     background-position-y: 10%;
