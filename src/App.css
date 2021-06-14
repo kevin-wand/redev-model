@@ -169,7 +169,7 @@ li {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(auto-fill);
-  justify-items: center;
+  justify-items: start;
   align-items: center;
 }
 
