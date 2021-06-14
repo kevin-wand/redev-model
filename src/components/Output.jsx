@@ -207,7 +207,9 @@ export default function Output(props) {
         {yearArray.map((e, index) => {
           return (
             <p style={yearStyles(index)} key={index}>
-              Yr {index}
+              {parseInt(index) === parseInt(time) + 1
+                ? "Valuation"
+                : "Yr " + index}
             </p>
           );
         })}
