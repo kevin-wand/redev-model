@@ -572,7 +572,7 @@ li {
   position: absolute;
   background-image: url(https://i.imgur.com/k5NKNtC.jpg);
   z-index: 1;
-  left: 40%;
+  left: 35%;
   width: 55%;
   height: 65vh;
   text-align: center;
@@ -582,13 +582,16 @@ li {
   border-radius: 3px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
+  .form-container {
+    overflow: hidden;
+  }
   .blank-form {
     background-color: green;
     background-image: url(https://i.imgur.com/cyCMMj5.jpg);
-    background-blend-mode: hard-light;
+    background-blend-mode: screen;
     left: 400px;
-    width: 22rem;
+    width: 45vw;
     margin-top: 1%;
     right: 400px;
     background-position-x: 10%;
