@@ -442,7 +442,7 @@ li {
 .annualNoi {
   grid-area: output-container;
   grid-column: 1;
-  grid-row: 4;
+  grid-row: 4 !important;
 }
 
 .initialInvestment {

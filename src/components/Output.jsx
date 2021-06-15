@@ -211,7 +211,6 @@ export default function Output(props) {
     <div className="output-profit-wrapper">
       <div className="output-container">
         {yearArray.map((e, index) => {
-          console.log(typeof index);
           return (
             <p style={yearStyles(index)} key={index}>
               <strong>
