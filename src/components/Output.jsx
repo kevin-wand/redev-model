@@ -138,7 +138,7 @@ export default function Output(props) {
   let yearStyles = (columnPosition) => {
     let styles = {
       gridRow: 1,
-      gridColumn: columnPosition + 2,
+      gridColumn: `${columnPosition + 2}`,
     };
     return styles;
   };
@@ -146,7 +146,7 @@ export default function Output(props) {
   let revStyles = (columnPosition) => {
     let styles = {
       gridRow: 2,
-      gridColumn: columnPosition + 3,
+      gridColumn: `${columnPosition + 3}`,
     };
     return styles;
   };
@@ -154,7 +154,7 @@ export default function Output(props) {
   let expStyles = (columnPosition) => {
     let styles = {
       gridRow: 3,
-      gridColumn: columnPosition + 3,
+      gridColumn: `${columnPosition + 3}`,
     };
     return styles;
   };
@@ -162,7 +162,7 @@ export default function Output(props) {
   let noiStyles = (columnPosition) => {
     let styles = {
       gridRow: 4,
-      gridColumn: columnPosition + 3,
+      gridColumn: `${columnPosition + 3}`,
     };
     return styles;
   };
@@ -170,7 +170,7 @@ export default function Output(props) {
   let initInvestStyles = (columnPosition) => {
     let styles = {
       gridRow: 7,
-      gridColumn: columnPosition + 2,
+      gridColumn: `${columnPosition + 2}`,
     };
     return styles;
   };
@@ -178,7 +178,7 @@ export default function Output(props) {
   let addCapStyles = (columnPosition) => {
     let styles = {
       gridRow: 8,
-      gridColumn: columnPosition + 3,
+      gridColumn: `${columnPosition + 3}`,
     };
     return styles;
   };
@@ -186,7 +186,7 @@ export default function Output(props) {
   let saleStyles = (columnPosition) => {
     let styles = {
       gridRow: 9,
-      gridColumn: columnPosition + 2,
+      gridColumn: `${columnPosition + 2}`,
     };
     return styles;
   };
@@ -194,7 +194,7 @@ export default function Output(props) {
   let feeStyles = (columnPosition) => {
     let styles = {
       gridRow: 10,
-      gridColumn: columnPosition + 2,
+      gridColumn: `${columnPosition + 2}`,
     };
     return styles;
   };
@@ -202,7 +202,7 @@ export default function Output(props) {
   let cashStyles = (columnPosition) => {
     let styles = {
       gridRow: 11,
-      gridColumn: columnPosition + 2,
+      gridColumn: `${columnPosition + 2}`,
     };
     return styles;
   };
@@ -211,6 +211,7 @@ export default function Output(props) {
     <div className="output-profit-wrapper">
       <div className="output-container">
         {yearArray.map((e, index) => {
+          console.log(typeof index);
           return (
             <p style={yearStyles(index)} key={index}>
               <strong>
