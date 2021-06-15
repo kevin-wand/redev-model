@@ -16,7 +16,16 @@ export default function Output(props) {
   let revArray = [];
   for (let j = 0; j <= time; j++) {
     if (!revArray.length) {
-      revArray.push(parseInt(formData.annualRevenue));
+      console.log(formData);
+      if (typeof formData.annualRevenue == "string") {
+        revArray.push(parseInt(formData.annualRevenue));
+      } else {
+        let total = 0;
+        formData.annualRevenue.forEach((stream) => {
+          total += parseInt(stream);
+        });
+        revArray.push(total);
+      }
     } else {
       revArray.push(
         parseInt(
